@@ -1,7 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useEffect } from "react";
 
 function App() {
+  const getData = async () => {
+    try {
+      const response = await fetch(
+        "http://gateway.marvel.com/v1/public/characters?name=hulk&ts=1000&apikey=&hash="
+      );
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
