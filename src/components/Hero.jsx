@@ -1,3 +1,10 @@
-export const Hero = (props) => {
-  return <div>Hola</div>;
+const Hero = ({ hero }) => {
+  return (
+    <div>
+      <p>{hero.name}</p>
+      <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt="" />
+    </div>
+  );
 };
+
+export default Hero;
